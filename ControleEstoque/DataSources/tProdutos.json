@@ -1,0 +1,26 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_excel",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2024-07-29T20:11:00.3430000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "__PowerAppsId__": "Row id",
+      "CodigoBarras": "CodigoBarras",
+      "CodigoProduto": "CodigoProduto",
+      "DescricaoProduto": "DescricaoProduto",
+      "EstoqueAtual": "EstoqueAtual",
+      "EstoqueMínimo": "EstoqueMínimo",
+      "ImagemProduto": "ImagemProduto",
+      "ValorRef": "ValorRef"
+    },
+    "DatasetName": "4B74FCE67D563144!75970",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "tProdutos",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]
