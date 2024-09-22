@@ -9,7 +9,7 @@ TelaInicial As screen:
 
     ButtonCadastrarProduto_4 As button:
         BorderThickness: =0
-        Fill: =RGBA(255, 19, 55, 1)
+        Fill: =RGBA(0, 18, 107, 1)
         Height: =80
         HoverFill: =RGBA(245, 115, 115, 1)
         OnSelect: =Navigate(CadastrarProduto, ScreenTransition.Fade)
@@ -50,7 +50,7 @@ TelaInicial As screen:
         Width: =30
         X: =17
         Y: =25
-        ZIndex: =8
+        ZIndex: =5
 
     Icon2_17 As icon.OpenInNewWindow:
         Height: =28
@@ -58,7 +58,7 @@ TelaInicial As screen:
         Width: =28
         X: =506
         Y: =25
-        ZIndex: =9
+        ZIndex: =6
 
     BottonConsultarEstoque_4 As button:
         Fill: =RGBA(0, 18, 107, 1)
@@ -72,7 +72,7 @@ TelaInicial As screen:
         Text: ="CONSULTAR ESTOQUE"
         Width: =404
         Y: =80
-        ZIndex: =10
+        ZIndex: =7
 
     "GaleriaProduto_1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
         DelayItemLoading: =true
@@ -91,7 +91,7 @@ TelaInicial As screen:
         Width: =502
         X: =404
         Y: =80
-        ZIndex: =11
+        ZIndex: =8
 
         Rectangle2_1 As rectangle:
             Height: =104
@@ -207,7 +207,7 @@ TelaInicial As screen:
         Width: =30
         X: =17
         Y: =105
-        ZIndex: =13
+        ZIndex: =9
 
     BottonEntradaSaida_4 As button:
         Fill: =RGBA(0, 18, 107, 1)
@@ -221,7 +221,7 @@ TelaInicial As screen:
         Text: ="ENTRADA/SAÍDA"
         Width: =404
         Y: =160
-        ZIndex: =14
+        ZIndex: =10
 
     Icon1_6 As icon.ArrowsUpDown:
         Color: =RGBA(255, 255, 255, 1)
@@ -230,7 +230,7 @@ TelaInicial As screen:
         Width: =30
         X: =17
         Y: =185
-        ZIndex: =15
+        ZIndex: =11
 
     BottonHistoricoMov_4 As button:
         Fill: =RGBA(0, 18, 107, 1)
@@ -244,7 +244,7 @@ TelaInicial As screen:
         Text: ="HISTÓRICO DE MOVIMENTAÇÃO"
         Width: =404
         Y: =240
-        ZIndex: =16
+        ZIndex: =12
 
     Icon2_19 As icon.OpenInNewWindow:
         Color: =RGBA(255, 255, 255, 1)
@@ -253,64 +253,7 @@ TelaInicial As screen:
         Width: =30
         X: =17
         Y: =264
-        ZIndex: =17
-
-    CompositeColumnChart1 As group:
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =18
-
-        Title1 As label:
-            Align: =Align.Center
-            Height: =15
-            Text: ="Estoques"
-            Width: =460
-            X: =906
-            Y: =12
-            ZIndex: =19
-
-        ColumnChart1 As barChart:
-            Height: =240
-            Items: |-
-                =Search(
-                    tProdutos,
-                    CampoPesquisa_4.Text,
-                    DescricaoProduto, CodigoProduto
-                )
-            Width: =460
-            X: =906
-            ZIndex: =20
-
-    CompositeLineChart1 As group:
-        Height: =5
-        Width: =5
-        X: =40
-        Y: =40
-        ZIndex: =21
-
-        Title2 As label:
-            Align: =Align.Center
-            Height: =14
-            Text: ="Preço"
-            Width: =460
-            X: =906
-            Y: =259
-            ZIndex: =22
-
-        LineChart1 As lineChart:
-            Height: =235
-            Items: |-
-                =Search(
-                    tProdutos,
-                    CampoPesquisa_4.Text,
-                    DescricaoProduto, CodigoProduto
-                )
-            Width: =460
-            X: =906
-            Y: =252
-            ZIndex: =23
+        ZIndex: =13
 
     DataTable1 As dataTable.datatable:
         BorderStyle: =BorderStyle.Solid
@@ -327,7 +270,7 @@ TelaInicial As screen:
         Width: =460
         X: =906
         Y: =502
-        ZIndex: =24
+        ZIndex: =18
 
         DescricaoProduto_Coluna1 As dataTableColumn.textualColumn:
             DisplayMode: =DisplayMode.Edit
@@ -377,4 +320,88 @@ TelaInicial As screen:
             X: =0
             Y: =0
             ZIndex: =12
+
+    CompositeColumnChart1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        Title1 As label:
+            Align: =Align.Center
+            Height: =15
+            Text: ="Estoques"
+            Width: =460
+            X: =906
+            Y: =12
+            ZIndex: =14
+
+        ColumnChart1 As barChart:
+            Height: =240
+            Items: |-
+                =Search(
+                    tProdutos,
+                    CampoPesquisa_4.Text,
+                    DescricaoProduto, CodigoProduto
+                )
+            Width: =460
+            X: =906
+            ZIndex: =15
+
+    BottonHistoricoMov_5 As button:
+        Align: =Align.Left
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =35
+        OnSelect: =
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: ="PAGINA INICIAL"
+        Width: =113
+        X: =7
+        Y: =717
+        ZIndex: =19
+
+    Icon4 As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Home
+        OnSelect: =Navigate(TelaInicial,ScreenTransition.Fade)
+        Width: =60
+        X: =34
+        Y: =664
+        ZIndex: =20
+
+    CompositeLineChart1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =21
+
+        Title2 As label:
+            Align: =Align.Center
+            Height: =14
+            Text: ="Preço"
+            Width: =460
+            X: =906
+            Y: =259
+            ZIndex: =16
+
+        LineChart1 As lineChart:
+            Height: =235
+            Items: |-
+                =Search(
+                    tProdutos,
+                    CampoPesquisa_4.Text,
+                    DescricaoProduto, CodigoProduto
+                )
+            Width: =460
+            X: =906
+            Y: =252
+            ZIndex: =17
 
