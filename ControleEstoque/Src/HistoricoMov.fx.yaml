@@ -132,7 +132,7 @@ HistoricoMov As screen:
     ButtonDigitalizar_3 As button:
         BorderThickness: =0
         Fill: =RGBA(0, 0, 0, 1)
-        OnSelect: =BarcodeType.QRCode
+        OnSelect: ='BarcodeReader.ScanningMode'.AutomaticallyScan
         RadiusBottomLeft: =20
         RadiusBottomRight: =20
         RadiusTopLeft: =20
