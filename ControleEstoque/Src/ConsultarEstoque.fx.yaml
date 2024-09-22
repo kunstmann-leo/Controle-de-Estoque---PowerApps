@@ -435,3 +435,30 @@ ConsultarEstoque As screen:
         Y: =677
         ZIndex: =20
 
+    BottonHistoricoMov_7 As button:
+        Align: =Align.Left
+        BorderColor: =RGBA(0, 18, 107, 1)
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =35
+        OnSelect: =
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =10
+        Text: ="PAGINA INICIAL"
+        Width: =113
+        X: =7
+        Y: =717
+        ZIndex: =21
+
+    Icon4_2 As icon.Home:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =60
+        Icon: =Icon.Home
+        OnSelect: =Navigate(TelaInicial,ScreenTransition.Fade)
+        Width: =60
+        X: =34
+        Y: =664
+        ZIndex: =22
+
