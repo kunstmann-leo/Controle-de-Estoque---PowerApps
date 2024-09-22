@@ -1,0 +1,63 @@
+{
+  "0f600be7-aa0f-4fb3-aecd-18af0297a227": {
+    "appActions": [],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "OneDrive",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1689/1.0.1689.3722/onedrive/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_onedrive",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "98840e95-7884-478b-9a34-f17d4a027a70"
+    ],
+    "id": "0f600be7-aa0f-4fb3-aecd-18af0297a227"
+  },
+  "98840e95-7884-478b-9a34-f17d4a027a70": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Excel",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1702/1.0.1702.3810/excel/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_excel",
+      "parameterHints": {
+        "0f600be7-aa0f-4fb3-aecd-18af0297a227": {
+          "value": "fileSource"
+        }
+      },
+      "parameterHintsV2": {
+        "fileSource": {
+          "value": "0f600be7-aa0f-4fb3-aecd-18af0297a227"
+        }
+      }
+    },
+    "datasets": {
+      "4B74FCE67D563144!75970": {
+        "dataSources": {
+          "tMovimentos": {
+            "tableName": "tMovimentos"
+          },
+          "tProdutos": {
+            "tableName": "tProdutos"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "tProdutos",
+      "tMovimentos"
+    ],
+    "dependencies": {
+      "fileSource": "0f600be7-aa0f-4fb3-aecd-18af0297a227"
+    },
+    "dependents": [],
+    "id": "98840e95-7884-478b-9a34-f17d4a027a70"
+  }
+}

@@ -1,0 +1,732 @@
+CadastrarProduto As screen:
+
+    Rectangle1_2 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        Width: =962
+        X: =404
+        ZIndex: =1
+
+    "GaleriaProduto As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        DelayItemLoading: =true
+        Height: =688
+        Items: |-
+            =Search(
+                tProdutos,
+                CampoPesquisa.Text,
+                DescricaoProduto, CodigoProduto
+            )
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =104
+        Transition: =Transition.Pop
+        Width: =502
+        X: =404
+        Y: =80
+        ZIndex: =2
+
+        Image2 As image:
+            Height: =72
+            Image: =ThisItem.ImagemProduto
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =72
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.DescricaoProduto
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 173
+            X: =103
+            Y: =7
+            ZIndex: =2
+
+        NextArrow2 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(166, 166, 166, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledColor: =RGBA(119, 119, 119, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Exibir detalhes do item"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator2 As rectangle:
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle2 As rectangle:
+            Height: =104
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =0
+            ZIndex: =6
+
+        Subtitle2_1 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: ="R$ " & ThisItem.ValorRef
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =Title3.X
+            Y: =54
+            ZIndex: =7
+
+        Subtitle2_2 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Código de Barras: " & ThisItem.CodigoBarras
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =Title3.X
+            Y: =75
+            ZIndex: =8
+
+        Subtitle2_3 As label:
+            FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: =ThisItem.CodigoProduto
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title3.Width
+            X: =103
+            Y: =32
+            ZIndex: =9
+
+    CampoPesquisa As text:
+        Clear: =true
+        Default: =
+        HintText: ="Pesquisa de Produto"
+        PaddingLeft: =45
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        X: =495
+        Y: =20
+        ZIndex: =3
+
+    Rectangle1 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =768
+        Width: =404
+        ZIndex: =4
+
+    ButtonCadastrarProduto As button:
+        BorderThickness: =0
+        Fill: =RGBA(255, 19, 55, 1)
+        Height: =80
+        HoverFill: =RGBA(245, 115, 115, 1)
+        OnSelect: =NewForm(FormularioProduto)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="CADASTRAR PRODUTO"
+        Width: =404
+        ZIndex: =5
+
+    BottonConsultarEstoque As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        OnSelect: =Navigate(ConsultarEstoque, ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="CONSULTAR ESTOQUE"
+        Width: =404
+        Y: =80
+        ZIndex: =6
+
+    BottonEntradaSaida As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        OnSelect: =Navigate(EntradaSaida, ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="ENTRADA/SAÍDA"
+        Width: =404
+        Y: =160
+        ZIndex: =7
+
+    BottonHistoricoMov As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        OnSelect: =Navigate(HistoricoMov, ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="HISTÓRICO DE MOVIMENTAÇÃO"
+        Width: =404
+        Y: =240
+        ZIndex: =8
+
+    Icon1 As icon.ArrowsUpDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Sort
+        Width: =30
+        X: =17
+        Y: =185
+        ZIndex: =9
+
+    Icon2 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Add
+        Width: =30
+        X: =17
+        Y: =25
+        ZIndex: =10
+
+    Icon2_1 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.OptionsList
+        Width: =30
+        X: =17
+        Y: =264
+        ZIndex: =11
+
+    Icon2_2 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Search
+        Width: =30
+        X: =17
+        Y: =105
+        ZIndex: =12
+
+    FormularioProduto As form:
+        DataSource: =tProdutos
+        Fill: =RGBA(255, 19, 55, 1)
+        Height: =688
+        Item: =GaleriaProduto.Selected
+        NumberOfColumns: =2
+        Width: =458
+        X: =907
+        Y: =80
+        ZIndex: =13
+
+        CodigoProduto_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CodigoProduto"
+            Default: =ThisItem.CodigoProduto
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@tProdutos],DataSourceInfo.DisplayName,CodigoProduto)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@tProdutos], DataSourceInfo.MaxLength, CodigoProduto)
+            Required: =false
+            Update: =DataCardValue2.Text
+            Width: =229
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey2 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: |-
+                    =If(
+                        FormularioProduto.Mode = FormMode.New,
+                        Last(tProdutos).CodigoProduto + 1,
+                        ThisItem.CodigoProduto
+                    )
+                DelayOutput: =true
+                DisplayMode: =DisplayMode.View
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                ZIndex: =2
+
+            ErrorMessage2 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible2 As label:
+                Align: =Align.Center
+                Height: =DataCardKey2.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey2.Y
+                ZIndex: =4
+
+        DescricaoProduto_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="DescricaoProduto"
+            Default: =ThisItem.DescricaoProduto
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@tProdutos],DataSourceInfo.DisplayName,DescricaoProduto)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@tProdutos], DataSourceInfo.MaxLength, DescricaoProduto)
+            Required: =false
+            Update: =DataCardValue3.Text
+            Width: =229
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey3 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                ZIndex: =2
+
+            ErrorMessage3 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible3 As label:
+                Align: =Align.Center
+                Height: =DataCardKey3.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey3.Y
+                ZIndex: =4
+
+        ImagemProduto_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ImagemProduto"
+            Default: =ThisItem.ImagemProduto
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@tProdutos],DataSourceInfo.DisplayName,ImagemProduto)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@tProdutos], DataSourceInfo.MaxLength, ImagemProduto)
+            Required: =false
+            Update: =DataCardValue4.Text
+            Width: =229
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue4 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                ZIndex: =2
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue4.Y + DataCardValue4.Height
+                ZIndex: =3
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+
+        ValorRef_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ValorRef"
+            Default: =ThisItem.ValorRef
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@tProdutos],DataSourceInfo.DisplayName,ValorRef)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@tProdutos], DataSourceInfo.MaxLength, ValorRef)
+            Required: =false
+            Update: =DataCardValue5.Text
+            Width: =229
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey5 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue5 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                ZIndex: =2
+
+            ErrorMessage5 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue5.Y + DataCardValue5.Height
+                ZIndex: =3
+
+            StarVisible5 As label:
+                Align: =Align.Center
+                Height: =DataCardKey5.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey5.Y
+                ZIndex: =4
+
+        CodigoBarras_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CodigoBarras"
+            Default: |-
+                =If(
+                    FormularioProduto.Mode = FormMode.New,
+                    varCode1.Value,
+                
+                    If(
+                        IsBlank(varCode1.Value),
+                        ThisItem.CodigoBarras,
+                        varCode1.Value)
+                )
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@tProdutos],DataSourceInfo.DisplayName,CodigoBarras)
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@tProdutos], DataSourceInfo.MaxLength, CodigoBarras)
+            Required: =false
+            Update: =DataCardValue1.Text
+            Width: =458
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey1 As label:
+                AutoHeight: =true
+                Color: =RGBA(255, 255, 255, 1)
+                Height: =34
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue1 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                ZIndex: =2
+
+            ErrorMessage1 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue1.Y + DataCardValue1.Height
+                ZIndex: =3
+
+            StarVisible1 As label:
+                Align: =Align.Center
+                Height: =DataCardKey1.Height
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey1.Y
+                ZIndex: =4
+
+    Icon3 As icon.Add:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Icon: =Icon.Add
+        OnSelect: =NewForm(FormularioProduto)
+        Visible: |-
+            =If(
+                FormularioProduto.Mode = FormMode.Edit,
+                true,
+                false
+            )
+        Width: =40
+        X: =1290
+        Y: =20
+        ZIndex: =14
+
+    ButtonSaveNewProduct As button:
+        Fill: =RGBA(0, 0, 0, 1)
+        OnSelect: =SubmitForm(FormularioProduto)
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: |-
+            =If(
+                FormularioProduto.Mode = FormMode.Edit,
+                "SALVAR",
+                "CADASTRAR"
+            )
+        X: =1169
+        Y: =716
+        ZIndex: =15
+
+    Label1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =14
+        Text: |-
+            =If(
+                FormularioProduto.Mode = FormMode.Edit,
+                "EDIÇÃO DE PRODUTO",
+                "CADASTRO DE PRODUTO"
+            )
+        Width: =250
+        X: =1011
+        Y: =20
+        ZIndex: =16
+
+    Icon2_3 As icon.OpenInNewWindow:
+        Height: =28
+        Icon: =Icon.Search
+        Width: =28
+        X: =506
+        Y: =25
+        ZIndex: =17
+
+    "EscanerCodBarras As 'Leitor de Código de Barras'":
+        BorderFillColor: =RGBA(47, 81, 151, 1)
+        BorderRadius: =20
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledContentColor: =RGBA(166, 166, 166, 1)
+        DisabledFillColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.Edit
+        FillColor: =RGBA(56, 96, 178, 1)
+        FontSize: =15
+        Height: =40
+        HoverBorderColor: =RGBA(88, 115, 171, 1)
+        HoverContentColor: =RGBA(255, 255, 255, 1)
+        HoverFillColor: =RGBA(47, 81, 151, 1)
+        OnCancel: =false
+        OnScan: =false
+        PressedBorderColor: =RGBA(56, 96, 178, 1)
+        PressedContentColor: =RGBA(56, 96, 178, 1)
+        PressedFillColor: =RGBA(255, 255, 255, 1)
+        Text: ="Barcode Reader"
+        TextColor: =RGBA(255, 255, 255, 1)
+        Width: =173
+        X: =945
+        Y: =666
+        ZIndex: =18
+
+    ButtonDigitalizar As button:
+        BorderThickness: =0
+        Fill: =RGBA(0, 0, 0, 1)
+        OnSelect: |-
+            =Set(varAllCodes, EscanerCodBarras.Barcodes);
+            Set(varCode1, First(varAllCodes))
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Digitalizar"
+        X: =957
+        Y: =716
+        ZIndex: =19
+
+    Icon1_1 As icon.ArrowsUpDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Icon: =Icon.Edit
+        OnSelect: =EditForm(FormularioProduto)
+        Visible: |-
+            =If(
+                FormularioProduto.Mode = FormMode.New,
+                true,
+                false
+            )
+        Width: =40
+        X: =1290
+        Y: =20
+        ZIndex: =20
+

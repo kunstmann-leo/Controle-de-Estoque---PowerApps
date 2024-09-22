@@ -1,0 +1,316 @@
+HistoricoMov As screen:
+
+    Rectangle1_6 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =768
+        Width: =404
+        ZIndex: =1
+
+    ButtonCadastrarProduto_3 As button:
+        BorderThickness: =0
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        HoverFill: =RGBA(245, 115, 115, 1)
+        OnSelect: =Navigate(CadastrarProduto,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="CADASTRAR PRODUTO"
+        Width: =404
+        ZIndex: =2
+
+    Rectangle1_7 As rectangle:
+        BorderThickness: =2
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        Width: =962
+        X: =404
+        ZIndex: =3
+
+    CampoPesquisa_3 As text:
+        Clear: =true
+        Default: =
+        HintText: ="Pesquisa de Produto"
+        PaddingLeft: =45
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        X: =495
+        Y: =20
+        ZIndex: =4
+
+    Icon2_12 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Add
+        Width: =30
+        X: =17
+        Y: =25
+        ZIndex: =8
+
+    Icon2_13 As icon.OpenInNewWindow:
+        Height: =28
+        Icon: =Icon.Search
+        Width: =28
+        X: =506
+        Y: =25
+        ZIndex: =9
+
+    BottonConsultarEstoque_3 As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        OnSelect: =Navigate(ConsultarEstoque,ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="CONSULTAR ESTOQUE"
+        Width: =404
+        Y: =80
+        ZIndex: =10
+
+    Icon2_14 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Search
+        Width: =30
+        X: =17
+        Y: =105
+        ZIndex: =13
+
+    BottonEntradaSaida_3 As button:
+        Fill: =RGBA(0, 18, 107, 1)
+        Height: =80
+        OnSelect: =Navigate(EntradaSaida, ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="ENTRADA/SAÍDA"
+        Width: =404
+        Y: =160
+        ZIndex: =14
+
+    Icon1_7 As icon.ArrowsUpDown:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.Sort
+        Width: =30
+        X: =17
+        Y: =185
+        ZIndex: =15
+
+    BottonHistoricoMov_3 As button:
+        Fill: =RGBA(255, 19, 55, 1)
+        Height: =80
+        OnSelect: =Navigate(BottonHistoricoMov_3, ScreenTransition.Fade)
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =13
+        Text: ="HISTÓRICO DE MOVIMENTAÇÃO"
+        Width: =404
+        Y: =240
+        ZIndex: =16
+
+    Icon2_15 As icon.OpenInNewWindow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =30
+        Icon: =Icon.OptionsList
+        Width: =30
+        X: =17
+        Y: =264
+        ZIndex: =17
+
+    ButtonDigitalizar_3 As button:
+        BorderThickness: =0
+        Fill: =RGBA(0, 0, 0, 1)
+        OnSelect: =BarcodeType.QRCode
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Text: ="Digitalizar"
+        X: =861
+        Y: =20
+        ZIndex: =19
+
+    TabelaDadosProdutos_1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =RGBA(0, 18, 107, 1)
+        Height: =302
+        Items: |-
+            =Search(
+                tProdutos,
+                CampoPesquisa_3.Text,
+                CodigoBarras, DescricaoProduto
+            )
+        Width: =962
+        X: =404
+        Y: =80
+        ZIndex: =20
+
+        DescricaoProduto_Coluna2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DescricaoProduto"
+            FieldName: ="DescricaoProduto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.DescricaoProduto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+        CodigoBarras_Coluna2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CodigoBarras"
+            FieldName: ="CodigoBarras"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =ThisItem.CodigoBarras
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =2
+
+        EstoqueAtual_Coluna2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="EstoqueAtual"
+            FieldName: ="EstoqueAtual"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.EstoqueAtual
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =3
+
+        CodigoProduto_Coluna2 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CodigoProduto"
+            FieldName: ="CodigoProduto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =5
+            Text: =ThisItem.CodigoProduto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        EstoqueMínimo_Coluna1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="EstoqueMínimo"
+            FieldName: ="EstoqueMínimo"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.EstoqueMínimo
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        ValorRef_Coluna1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="ValorRef"
+            FieldName: ="ValorRef"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =6
+            Text: ="R$ " & ThisItem.ValorRef
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+    DataTable2_1 As dataTable.datatable:
+        BorderStyle: =BorderStyle.Solid
+        DisplayMode: =DisplayMode.Edit
+        Fill: =RGBA(0, 0, 0, 0)
+        HeadingFill: =RGBA(0, 18, 107, 1)
+        Height: =295
+        Items: |-
+            =Filter(
+                tMovimentos,
+                CodigoProduto = TabelaDadosProdutos_1.Selected.CodigoProduto)
+        Width: =962
+        X: =404
+        Y: =473
+        ZIndex: =21
+
+        CodigoProduto_Coluna1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="CodigoProduto"
+            FieldName: ="CodigoProduto"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =1
+            Text: =ThisItem.CodigoProduto
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =4
+
+        DataMovimentos_Coluna1_1 As dataTableColumn.dateTimeColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="DataMovimentos"
+            FieldName: ="DataMovimentos"
+            FieldVariantName: ="dateTimeColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =2
+            Text: =Text(ThisItem.DataMovimentos,DateTimeFormat.LongDateTime)
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =5
+
+        Quantidade_Coluna1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="Quantidade"
+            FieldName: ="Quantidade"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =3
+            Text: =ThisItem.Quantidade
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =6
+
+        TipoMovimento_Coluna1_1 As dataTableColumn.textualColumn:
+            DisplayMode: =DisplayMode.Edit
+            FieldDisplayName: ="TipoMovimento"
+            FieldName: ="TipoMovimento"
+            FieldVariantName: ="textualColumn"
+            Height: =Parent.Height
+            LayoutHeight: =Parent.Height
+            Order: =4
+            Text: =ThisItem.TipoMovimento
+            Width: =100
+            X: =0
+            Y: =0
+            ZIndex: =7
+
