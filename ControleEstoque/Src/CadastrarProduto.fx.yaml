@@ -694,9 +694,9 @@ CadastrarProduto As screen:
         PressedFillColor: =RGBA(255, 255, 255, 1)
         Text: ="Escanear"
         TextColor: =RGBA(255, 255, 255, 1)
-        Width: =173
-        X: =945
-        Y: =666
+        Width: =160
+        X: =957
+        Y: =387
         ZIndex: =18
 
     ButtonDigitalizar As button:
